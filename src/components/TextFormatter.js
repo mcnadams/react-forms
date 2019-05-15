@@ -20,6 +20,7 @@ export default class TextFormatter extends PureComponent {
     this.setState({ [target.name]: target.value });
   }
 
+  
   render() {
     return (
       <>
