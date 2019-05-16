@@ -16,15 +16,19 @@ export default class CreateColor extends PureComponent {
     this.props.addColor({ name: this.state.name, hex: this.state.color });
   }
 
+  handleNameChange({ target }) {
+    this.setState({ name: target.value });
+  }
+
   handleChange({ target }) {
-    this.setState({ [target.name]: target.value });
+    this.setState({ color: target.value });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-        <input type="color" name="color" value={this.state.color} onChange={this.handleChange} />
+        <input type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
+        <input type="color" name="color" value={this.state.color} onChange={this.handleColorChange} />
         <button>Add Color</button>
       </form>
     );
